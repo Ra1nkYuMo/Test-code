@@ -1,0 +1,99 @@
+button.course-management {
+    border: none;
+    font-size: 16px;
+}
+.classManagement{
+  border: none;
+  font-size: 16px;
+  text-decoration: none;
+  color:black;
+}
+  .hidden-form {
+    display: none;
+  }
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+     border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #f4f4f4;
+    opacity: 0.87;
+  }
+  .table th, .table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  .table th {
+    background-color: #e0e0e0;
+    font-weight: bold;
+    font-size: 15px;
+    font-weight:bold;
+  }
+  .table td {
+    background-color: #e0e0e0;
+    text-align: center;
+    font-size: 14px;
+  }
+  #add{
+    width: 10%;
+    height:  30px;
+    background-color: #4090ce;
+    color: #f0f0f0;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    margin-bottom: 8px;
+  }
+  #delete{
+    width: 10%;
+    height:  30px;
+    background-color: crimson;
+    color: #f0f0f0;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    margin-bottom: 8px;
+  }
+  #add:hover{
+    background: #0063ad;
+  }
+  #delete:hover{
+    background: brown;
+  }
+  tr:nth-child(even) {
+  background-color: #f0f0f0;
+}
+body {
+  background-image: url("background.jpg");
+  background-size: cover; /* 可选：用于适应尺寸 */
+  background-repeat: no-repeat; /* 禁止图像在水平和垂直方向上重复 */
+  background-size: cover; /* 将图像拉伸或缩放以适应整个视口 */
+  background-attachment: fixed; 
+}
+.tool-bar{
+   width: 150px;
+    margin: auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    background: #f4f4f4;
+    opacity: 0.87;
+}
+.nav
+{
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #f4f4f4;
+    opacity: 0.87;
+}
+thead
+{
+  border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #f4f4f4;
+    opacity: 0.87;
+}

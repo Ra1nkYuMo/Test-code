@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>添加课程</title>
+    <link href="../css/courseManage.css" rel="stylesheet" type="text/css">
+    <link href="../css/side.css" rel="stylesheet" type="text/css">
+    <style>
+        body {
+            background-image: url("../css/background.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .main {
+            width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="search-bar">
+            <input type="text" id = "courseName" placeholder="课程名称">
+            <input type="text" id = "courseType" placeholder="课程类别">
+            <input type="text" id = "payType" placeholder="付费类型">
+            <input type="text" id = "teacherName" placeholder="任课教师">
+        </div>
+        <div>
+            <button id="add">确认</button>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#add").click(function () {   
+                var btn_save = function () {
+                    const params = {};
+                    params.course_name = $("#courseName").val();
+                    params.course_type = $("#courseType").val();
+                    params.pay_type = $("#payType").val();
+                    params.teacher_name = $("#teacherName").val();
+
+                    $.ajax({
+                        url: "http://localhost:8080/addCourse",
+                        type: "POST",
+                        data: JSON.stringify(params),
+                        contentType: "application/json;charset=utf-8",
+                        success: function (data) {
+                            console.log(data);
+                            if (1) {
+                                $.jq_Alert({
+                                    message: "添加成功",
+                                    btnOktext: "确认",
+                                    dialogModal: true,
+                                    btnOkClick: function () {
+                                        location.reload();
+                                    }
+                                });
+                            }
+                        }
+                    });
+                    alert(t);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

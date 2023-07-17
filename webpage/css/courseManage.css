@@ -1,0 +1,138 @@
+    /* 左侧侧边导航栏样式 */
+    .tool-bar {
+        width: 200px;
+        height: 100%;
+        background-color: #f0f0f0;
+        float: left;
+      }
+      .tool-bar ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .tool-bar li {
+        padding: 10px;
+        cursor: pointer;
+        
+      }
+      .tool-bar li:hover {
+        background-color: #e0e0e0;
+      }
+      /* 右侧查询栏和表格样式 */
+      .main {
+        margin-left: 200px;
+        padding: 0px 20px;
+      }
+.nav{
+	margin: 20px 0px;
+	height: 80px;
+	border: solid 1px #ccc;	
+}
+.navone,.navtwo{
+	height: 40px;
+}
+.navone{
+	border-bottom: solid 1px #ccc;
+}
+.navone a,.navtwo a{
+	text-align: center;
+	text-decoration: none;
+	font-size: 15px;
+	display: inline-block;
+	font-display: block;
+	line-height: 40px;
+}
+.navone a{
+	color: #ccc;
+}
+.partone{
+	color: black;
+	padding:0px 20px;
+}
+.navtwo a:hover{
+	color:black;
+	background: #ccc;
+}
+.parttwo,.part{
+	float: right;
+	height: 40px;
+	padding: 0px;
+	width: 40px;
+}
+.parttwo{
+	width: 40px;
+	border-left: solid 1px #ccc;
+}
+.parttwo a{
+	font-size: 40px;
+	color: black;
+}
+.search-bar {
+	margin-bottom:  20px;
+  
+
+}
+.search-bar input[type="text"] {
+	width: 200px;
+    padding: 5px;
+        margin-right: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #f4f4f4;
+    opacity: 0.87;
+      }
+      .search-bar select {
+        padding: 5px;
+        margin-right: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #f4f4f4;
+    opacity: 0.87;
+      }
+      
+      .pagination {
+        margin-top: 20px;
+        text-align: center;
+        font-size: 16px;
+      }
+      .pagination a {
+        display: inline-block;
+        padding: 5px 10px;
+        margin-right: 5px;
+        text-decoration: none;
+        color: #333;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background: #f4f4f4;
+        opacity: 0.87;
+      }
+      /* .pagination a.active {
+        background-color: #f0f0f0;
+        font-size: 16px;
+      } */
+#find {
+    font-size: 16px;
+    padding: 5px;
+    margin-right: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #f4f4f4;
+    opacity: 0.87;
+}
+#renew {
+    font-size: 16px;
+    padding: 5px;
+    margin-right: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #f4f4f4;
+    opacity: 0.87;
+}
+      
+        
+      

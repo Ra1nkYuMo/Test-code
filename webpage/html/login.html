@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆</title>
+    <style>
+       body {
+        background-image: url("../img/background.jpg");
+        background-size: cover; /* 可选：用于适应尺寸 */
+        background-repeat: no-repeat; /* 禁止图像在水平和垂直方向上重复 */
+        background-size: cover; /* 将图像拉伸或缩放以适应整个视口 */
+        background-attachment: fixed; 
+         }
+        #form {
+            width: 400px;
+            margin: auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+            background: #f4f4f4;
+            opacity: 0.9;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        input {
+            height: 40px;
+            width: 95%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            height: 50px;
+            background:#FF8900;
+            color: #ffffff;
+            font-size: 18px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+
+        button:hover {
+           	background:#FFB300;
+        }
+        .captcha-image {
+        width: 400px; /* 调整验证码图像的宽度 */
+        height: 200px; /* 调整验证码图像的高度 */
+        
+        }
+        .register-link {
+        display: flex;
+        justify-content: center; /* 在主轴上水平居中对齐 */
+        margin-top: 20px; /* 设置与上方内容的间距 */
+    }
+		.register-link a{
+			color:darkblue;
+			padding: 20px;
+		}
+        
+    </style>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body>
+   
+
+    
+
+<div id="form">
+    <h1 align="center">用户登录</h1>
+    <div class="form-group">
+        
+        <input type="tel" id="phone-input" name="phone" placeholder="请输入手机号" required>
+       
+    </div>
+    <div class="form-group">
+        
+        <input type="password" id="password-input" name="password" placeholder="请输入密码" required>
+    </div>
+    
+    <div class="form-group">
+        
+        <input type="text" id="captcha-input" name="captcha" placeholder="请输入验证码" required>
+        <p></p>
+        <img id="image"  src="captcha-image.jpg" onclick="abc()" alt="验证码" >
+    </div>
+    <button onclick="login()">登录</button>
+    <div class="register-link">
+        <a href="reg.html">点击注册</a>
+        <a href="find.html">忘记密码</a>
+    </div>
+
+</div>
+<script>
+    function abc(){
+        $.ajax({
+            url: "http://localhost:8080/imageCode",
+            success: function (result,status,xmlhttp){
+                if (result.code == 0){
+                    var key = xmlhttp.getResponseHeader("key");
+                    sessionStorage.setItem("key",key);
+                    $("#image").attr("src",result.data);
+                }
+            }
+        })
+    }
+    abc();
+
+    function login (){
+        var params = {};
+        params.phone = $("#phone-input").val();
+        params.password = $("#password-input").val();
+        params.code = $("#captcha-input").val();
+        // 数据校验
+        // 校验参数
+        if (params.phone == ""){
+            alert("手机号不能为空");
+            return;
+        }
+        if (params.password == ""){
+            alert("密码不能为空");
+            return;
+        }
+        var regExp = /((13[4-9])|(14[47])|(15[0-35-9])|(16[567])|(17[2-8])|(18[0-49])|(19[579]))\d{8}/
+        if (!regExp.test(params.phone)){
+            alert("手机号不符合规范");
+            return;
+        }
+        // 密码校验
+        
+        // 将数据发送到后台去
+        $.ajax({
+            url: "http://localhost:8080/login",
+            type: "post",
+            data:JSON.stringify(params),
+            headers:{"key":sessionStorage.getItem("key")},
+            contentType:"application/json;charset=utf-8",
+            success:function (result,status,xmlhttp){
+                if (result.code == 0){
+                    var token = xmlhttp.getResponseHeader("token");
+                    localStorage.setItem("token",token);
+                    alert(result.message)
+                    window.location.href = "courseManage.html";
+                }
+                
+            }
+        })
+    }
+</script>
+</body>
+</html>
+
+

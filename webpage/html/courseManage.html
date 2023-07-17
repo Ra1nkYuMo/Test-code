@@ -1,0 +1,238 @@
+ <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>课程管理</title>
+<link href="../css/courseManage.css" rel="stylesheet" type="text/css">
+<link href="../css/side.css" rel="stylesheet" type="text/css">
+<link href="../font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <!-- 左侧侧边导航栏 -->
+  <div class="tool-bar">
+    <ul>
+      <li><button class="course-management" >DashBoard </button></li>
+      <li><button class="course-management" >系统管理</button></li>
+      <li><button class="course-management">系统监控</button></li>
+      <li><button id="classManagementButton" class="classManagement" onclick="redirectToTargetPage()"> 班级管理</button></li>
+      <li>
+        <button class="course-management" onclick="toggleForm();">
+          课程管理 
+        </button>
+        <ul>
+          <form id="myForm" class="hidden-form">
+            <li>课程管理</li>
+            <li>课程分配</li>
+            <li>课程纠错</li>          
+          </form>
+        </ul>
+      </li>
+      <li><button class="course-management" >视频管理</button></li>
+      <li><button class="course-management" >消息中心</button></li>
+      <li><button class="course-management" >基础菜单管理</button></li>
+      <li><button class="course-management" >帮助文档</button></li>
+    </ul>
+  </div>
+  <!-- 右侧查询栏和表格 -->
+  <div class="main">
+		<div class="nav">
+			<div class="navone">
+				<a href="#"><i class="fa fa-indent"></i></a>
+				<a href="#"><i class="fa fa-user"></i>课程管理<i class="fa fa-chevron-down"></i></a>
+				<a href="#">/</a>
+				<a href="#"><i class="fa fa-star"></i></a>
+				<a href="#">课程管理</a>
+				<a href="#" class="part"><i class="fa fa-search-plus"></i></a>
+				<a href="#" class="part" style="width: 40px">管理员</a>
+				<a href="#" class="part"><i class="fa fa-font"></i></a>
+				<a href="#" class="part"><i class="fa fa-user"></i></a>
+				<a href="#" class="part"><i class="fa fa-lock"></i></a>
+				<a href="#" class="part"><i class="fa fa-expand"></i></a>
+				<a href="#" class="part"><i class="fa fa-bell-o"></i></a>
+				<a href="#" class="part"><i class="fa fa-bug"></i></a>
+				<a href="#" class="part"><i class="fa fa-search"></i></a>
+			</div>
+			<div class="navtwo">
+				<a href="#" class="partone">首页</a>
+				<a href="#" class="partone">班级学员列表</a>
+				<a href="#" class="partone">班级课程管理</a>
+				<a href="#" class="partone">班级模板管理</a>
+				<a href="#" class="partone">课程管理</a>
+				<a href="#" class="parttwo"><i class="fa fa-search-plus"></i></a>
+				<a href="#" class="parttwo"><i class="fa fa-chevron-down"></i></a>
+				<a href="#" class="parttwo"><i class="fa fa-refresh"></i></a>
+			</div>
+		</div>
+    <div class="search-bar">
+      <input type="text" placeholder="请输入课程名称">
+      <select>
+        <option value="">全部类别</option>
+        <option value="1">计算机科学</option>
+        <option value="2">数学</option>
+        <option value="3">物理</option>
+      </select>
+      <select>
+        <option value="">全部状态</option>
+        <option value="1">已发布</option>
+        <option value="2">未发布</option>
+      </select>
+      <button id="find">查询</button>	
+      <button id="renew">重置</button>
+		<select>
+			<option value="">展开</option>
+			<option value="1">展开</option>
+			<option value="2">展开</option>
+		</select>
+    </div>
+    <div >
+    <button id="add" onclick="addCourse()">新增</button>
+    <button id="delete">删除</button>
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th> <!-- 勾选框 -->
+          <th>课程名称</th>
+          <th>课程类别</th>
+          <th>付费类型</th>
+          <th>任课教师</th>
+          <th>推送状态</th>
+          <th>上线时间</th>
+          <th>课程状态</th>
+          <th>操作</th>
+        </tr>
+        <tr>
+          <td><input type="checkbox" name="student"></td> <!-- 勾选框 -->
+          <td>微积分</td>
+          <td>必修</td>
+          <td>免费</td>
+          <td>xxx</td>
+          <td style="color: #ccc;">官网</td>
+          <td>/</td>
+          <td>有效</td>
+          <td><a href="1.html">编辑</a></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" name="student"></td> <!-- 勾选框 -->
+          <td>大学英语</td>
+          <td>必修</td>
+          <td>免费</td>
+          <td>xxx</td>
+          <td style="color: #ccc;">官网</td>
+          <td>/</td>
+          <td>有效</td>
+          <td ><a href="1.html">编辑</a></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" name="student"></td> <!-- 勾选框 -->
+          <td>大学物理</td>
+          <td>必修</td>
+          <td>免费</td>
+          <td>xxx</td>
+          <td style="color: #ccc;">官网</td>
+          <td>/</td>
+          <td>有效</td>
+          <td ><a href="1.html">编辑</a></td>
+        </tr>
+      </thead>
+      <tbody>
+          <!-- 这里使用 ajax 技术动态加载数据 -->
+      </tbody>
+    </table>
+    <div class="pagination">
+      <a href="#" class="active">1</a>
+      <a href="#">2</a>
+      <a href="#">3</a>
+      <a href="#">4</a>
+      <a href="#">5</a>
+    </div>
+    </div>
+      </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    function toggleForm() {
+      var form = document.getElementById("myForm");
+    if (form.style.display === "none") {
+      form.style.display = "block";
+    } else {
+      form.style.display = "none";
+  }}
+    $(function query() {
+      // 查询按钮点击事件
+      $("#find").click(function() {
+        // 获取查询条件
+       
+        var name = $("input[type='text']").val();
+        var category = $("select:eq(0)").val();
+        var status = $("select:eq(1)").val();
+        // 发送 ajax 请求获取数据
+        $.ajax({
+            url: "http://localhost:8080/selectCourse",
+          type: "GET",
+          data: {
+            name: name,
+            category: category,
+            status: status
+          },
+          
+          success: function(data) {
+            // 清空表格数据
+            $("tbody").empty();
+            // 遍历数据并添加到表格中
+            $.each(data, function(index, item) {
+              var tr = $("<tr></tr>");
+              var td1 = $("<td></td>").text(item.name);
+              var td2 = $("<td></td>").text(item.category);
+              var td3 = $("<td></td>").text(item.status);
+              tr.append(td1, td2, td3);
+              $("tbody").append(tr);
+            });
+          }
+        });
+      });
+    });
+      $(document).ready(function () {
+          $.ajax({
+              url: 'data.PHP',
+              method: 'GET',
+              dataType: 'json',
+              success: function (data) {
+                  // 数据获取成功后的处理逻辑
+                  populateForm(data);
+              }
+          });
+      });
+      function populateForm(data) {
+          var tableBody = $('table.table tbody'); // 获取表格的 tbody 元素
+          $.each(data, function (index, item) {
+              var row = $('<tr>');
+              // 创建勾选框列
+              var checkbox = $('<td>').append('<input type="checkbox" name="student">');
+              row.append(checkbox);
+              // 创建其他列
+              var columns = [
+                  item.courseName,
+                  item.courseCategory,
+                  item.paymentType,
+                  item.teacher,
+                  item.pushStatus,
+                  item.onlineTime,
+                  item.courseStatus,
+                  $('<td>').append('<a href="1.html">编辑</a>')
+              ];
+              // 将每一列添加到表格行中
+              $.each(columns, function (index, column) {
+                  row.append($('<td>').text(column));
+              });
+              // 将表格行添加到表格的 tbody 中
+              tableBody.append(row);
+          });
+      }
+    function redirectToTargetPage() {
+  window.location.href = "12.html";
+      }
+    function addCourse() {
+        window.location.href = "addCourse.html";
+    }
+  </script>
+</body>
+</html>

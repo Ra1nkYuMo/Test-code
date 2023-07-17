@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>我的网站首页</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+			background-image: url("../img/background.jpg");
+ 			background-size: cover; /* 可选：用于适应尺寸 */
+			background-repeat: no-repeat; /* 禁止图像在水平和垂直方向上重复 */
+			background-size: cover; /* 将图像拉伸或缩放以适应整个视口 */
+			background-attachment: fixed; 
+        	display: flex;
+        	flex-direction: column;
+        	height: 100vh;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+			opacity: 0.9;
+        }
+        h1 {
+            margin: 0;
+        }
+        nav {
+            background-color: #f4f4f4;
+            padding: 0px;
+			height: 50px;
+			opacity: 0.8;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display:inline-block;
+			padding:0px 20px;
+        }
+		nav ul li:hover{
+			background:#A3A3A3;
+		}
+		nav ul li a{
+			text-decoration: none;
+			height: 50px;
+			line-height: 50px;
+			color: black;
+		}
+		nav ul li a:hover{
+			color: #ccc;
+		}
+        main {
+       		flex: 1; /* 设置内容区域自动填满剩余空间 */
+        	padding: 20px;			
+       		display: flex;
+			justify-content: flex-end;
+        	margin-top: auto; /* 将reg盒子置于底部 */
+    	}
+        }
+        footer {
+            color:white;
+            text-align: center;
+			font-size: 50px;
+			padding: 20px;
+        }
+		.reg {
+        	text-align: center;
+			margin: auto;
+    	}
+		.reg a {
+        	text-decoration: none;
+        	color:white;
+        	font-size: 30px;
+			padding: 20px 100px;
+			font-weight: 1000;
+    	    background-color: rgba(255, 255, 255, 0.4);
+			border-radius: 5px;
+			margin: 50px;
+		}
+	    .reg a:hover {
+    	    background-color: rgba(255, 255, 255, 0.6);
+    	}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>学生管理系统</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="#">关于我们</a></li>
+            <li><a href="#">产品与服务</a></li>
+            <li><a href="#">联系我们</a></li>
+        </ul>
+    </nav>
+    <main>
+		<div class="reg">			
+			<a href="reg.html">注册</a>
+			<a href="login.html">登录</a>
+		</div>
+	</main>
+    <footer style="background-color: black;  opacity: 0.6">
+        <p style="color: white; padding-left: 30px">&copy; 2023 我的网站。保留所有权利。</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>223140101班级信息</title>
+  <style>
+    body {
+    background-image: url("../css/background.jpg");
+  background-size: cover; /* 可选：用于适应尺寸 */
+  background-repeat: no-repeat; /* 禁止图像在水平和垂直方向上重复 */
+  background-size: cover; /* 将图像拉伸或缩放以适应整个视口 */
+  background-attachment: fixed; 
+  }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .student-info {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .student-info span {
+      flex: 1;
+    }
+
+    .student-info span:first-child {
+      font-weight: bold;
+    }
+    #add{
+    width: 10%;
+    height:  30px;
+    background-color: #4090ce;
+    color: #f0f0f0;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    margin-bottom: 8px;
+  }
+  #delete{
+    width: 10%;
+    height:  30px;
+    background-color: crimson;
+    color: #f0f0f0;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    margin-bottom: 8px;
+  }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>223140101班级信息</h2>
+    <button id="add">新增</button>
+    <button id="delete">删除</button>
+    <!-- 生成20个学生信息的脚本 -->
+    <script>
+      for (let i = 2022021; i <= 2022040; i++) {
+        let studentNumber = i;
+        let studentName = '学生' + (i - 2022020);
+
+        let studentInfo = document.createElement('div');
+        studentInfo.className = 'student-info';
+        studentInfo.innerHTML = `
+          <span>学号：</span>
+          <span>${studentNumber}</span>
+          <span>姓名：</span>
+          <span>${studentName}</span>
+          <span>性别：</span>
+          <span>女</span>
+        `;
+
+        document.body.querySelector('.container').appendChild(studentInfo);
+      }
+      // 此处添加生成学生的方法 生成效果类似于上面的样本
+
+    </script>
+  </div>
+</body>
+
+</html>
